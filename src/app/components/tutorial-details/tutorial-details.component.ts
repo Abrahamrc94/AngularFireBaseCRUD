@@ -34,7 +34,7 @@ export class TutorialDetailsComponent implements OnInit, OnChanges {
       this.tutorialService.update(this.currentTutorial.key, { published: status })
       .then(() => {
         this.currentTutorial.published = status;
-        this.message = 'The status was updated successfully!';
+        this.message = '¡El estado del tutorial fue actualizado con éxito!';
       })
       .catch(err => console.log(err));
     }
@@ -48,7 +48,7 @@ export class TutorialDetailsComponent implements OnInit, OnChanges {
 
     if (this.currentTutorial.key) {
       this.tutorialService.update(this.currentTutorial.key, data)
-        .then(() => this.message = 'The tutorial was updated successfully!')
+        .then(() => this.message = '¡El tutorial fue actualizado con éxito!')
         .catch(err => console.log(err));
     }
   }
@@ -58,7 +58,7 @@ export class TutorialDetailsComponent implements OnInit, OnChanges {
       this.tutorialService.delete(this.currentTutorial.key)
         .then(() => {
           this.refreshList.emit();
-          this.message = 'The tutorial was updated successfully!';
+          this.message = '¡El tutorial fue borrado con éxito!';
         })
         .catch(err => console.log(err));
     }

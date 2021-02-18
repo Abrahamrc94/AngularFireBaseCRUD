@@ -13,21 +13,21 @@ export class TutorialsListComponent implements OnInit {
   tutorials?: Tutorial[];
   currentTutorial?: Tutorial;
   currentIndex = -1;
-  title = '';
+  titulo = '';
 
   constructor(private tutorialService: TutorialService) { }
 
   ngOnInit(): void {
-    this.retrieveTutorials();
+    this.getTutoriales();
   }
 
-  refreshList(): void {
+  refrescarLista(): void {
     this.currentTutorial = undefined;
     this.currentIndex = -1;
-    this.retrieveTutorials();
+    this.getTutoriales();
   }
 
-  retrieveTutorials(): void {
+  getTutoriales(): void {
     this.tutorialService.getAll().snapshotChanges().pipe(
       map(changes =>
         changes.map(c =>
@@ -39,14 +39,14 @@ export class TutorialsListComponent implements OnInit {
     });
   }
 
-  setActiveTutorial(tutorial: Tutorial, index: number): void {
+  establecerActivo(tutorial: Tutorial, index: number): void {
     this.currentTutorial = tutorial;
     this.currentIndex = index;
   }
 
-  removeAllTutorials(): void {
+  borrarTodo(): void {
     this.tutorialService.deleteAll()
-      .then(() => this.refreshList())
+      .then(() => this.refrescarLista())
       .catch(err => console.log(err));
   }
 

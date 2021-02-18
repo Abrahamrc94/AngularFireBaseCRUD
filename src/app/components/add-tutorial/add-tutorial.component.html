@@ -1,7 +1,7 @@
 <div class="submit-form">
     <div *ngIf="!submitted">
       <div class="form-group">
-        <label for="title">Title</label>
+        <label for="title">Título</label>
         <input type="text" class="form-control" id="title" required [(ngModel)]="tutorial.title" name="title"/>
       </div>
   
@@ -10,11 +10,11 @@
         <input class="form-control" id="description" required [(ngModel)]="tutorial.description" name="description"/>
       </div>
   
-      <button (click)="saveTutorial()" class="btn btn-success">Enviar</button>
+      <button (click)="guardarTutorial()" class="btn btn-success">Enviar</button>
     </div>
   
     <div *ngIf="submitted">
       <h4>Tutorial añadido con éxito</h4>
-      <button class="btn btn-success" (click)="newTutorial()">Añadir</button>
+      <button class="btn btn-success" (click)="nuevoTutorial()">Añadir</button>
     </div>
   </div>
